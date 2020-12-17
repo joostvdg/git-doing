@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<note>
+    <identifier>4c622236-0acc-45b0-ace5-8db4b0fc3e23</identifier>
+    <name>Test</name>
+    <description>My First Test</description>
+    <text>= This Is Now My Text</text>
+    <closed>false</closed>
+    <created/>
+    <labels>study</labels>
+    <items>
+        <id>68d1ced9-7be6-4ef5-8c6c-d847ceaf8e60</id>
+        <link>http://test.that</link>
+        <comment>A Comment</comment>
+        <kind>OTHER</kind>
+        <done>false</done>
+    </items>
+    <items>
+        <id>c7e042cd-58d2-4ca3-83ca-0a90664aed08</id>
+        <link>http://test.this</link>
+        <comment>No Comment</comment>
+        <kind>ARTICLE</kind>
+        <done>false</done>
+    </items>
+</note>
