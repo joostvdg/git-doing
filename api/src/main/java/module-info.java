@@ -7,5 +7,5 @@ module com.github.joostvdg.gitdoing.api {
 
     uses com.github.joostvdg.gitdoing.api.exporters.Exporter;
 
-    opens com.github.joostvdg.gitdoing.api to java.xml.bind;
+    opens com.github.joostvdg.gitdoing.api;
 }

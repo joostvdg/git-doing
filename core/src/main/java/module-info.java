@@ -9,4 +9,7 @@ module com.github.joostvdg.gitdoing.core {
     provides com.github.joostvdg.gitdoing.api.exporters.Exporter with
             com.github.joostvdg.gitdoing.core.export.OutputTest,
             com.github.joostvdg.gitdoing.core.export.XmlExporter;
+
+    // Required for Surefire?
+    opens com.github.joostvdg.gitdoing.core.export;
 }
