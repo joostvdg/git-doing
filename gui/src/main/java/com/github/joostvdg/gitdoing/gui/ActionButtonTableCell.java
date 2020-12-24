@@ -7,7 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
 import java.util.function.Function;
-git 
+
 /**
  * Alternative Rendering of a TableCell.
  * Copied from: https://stackoverflow.com/posts/49066796/revisions
