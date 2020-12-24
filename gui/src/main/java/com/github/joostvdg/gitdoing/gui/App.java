@@ -17,7 +17,7 @@ public class App extends Application  {
         System.out.println("Starting GUI!");
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         stage.setTitle("GitDoing v0.0.1");
-        stage.setScene(new Scene(root, 800, 500));
+        stage.setScene(new Scene(root, 1280, 720));
         stage.show();
     }
 
