@@ -4,12 +4,10 @@ package com.github.joostvdg.gitdoing.api;
 import java.time.LocalDateTime;
 import java.util.*;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "note")
 public class Note {
 
     private final String identifier;
@@ -20,7 +18,11 @@ public class Note {
     private final LocalDateTime created;
     private LocalDateTime lastEdit;
     private LocalDateTime lastOpened;
+    @XmlElement(name = "label")
+    @XmlElementWrapper(name = "labels")
     private final Set<String> labels;
+    @XmlElement(name = "item")
+    @XmlElementWrapper(name = "items")
     private final Set<NoteItem> items;
 
     public Note(String name, String description) {
@@ -29,8 +31,8 @@ public class Note {
         this.description = description;
         created = LocalDateTime.now();
         text = "";
-        items = new TreeSet<>();
-        labels = new TreeSet<>();
+        items = new TreeSet<>((o1, o2) -> o1.getId().compareTo(o2.getId()));
+        labels = new TreeSet<>(String::compareTo);
         closed = false;
     }
 

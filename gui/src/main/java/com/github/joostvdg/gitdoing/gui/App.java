@@ -1,5 +1,6 @@
 package com.github.joostvdg.gitdoing.gui;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,7 @@ public class App extends Application  {
 
     @Override
     public void start(Stage stage) throws Exception {
+        System.out.println("Loading Application");
         System.out.println("Starting GUI!");
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         stage.setTitle("GitDoing v0.0.1");

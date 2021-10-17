@@ -1,21 +1,22 @@
 package com.github.joostvdg.gitdoing.api;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NoteItem implements Comparable{
+@XmlRootElement(name = "item")
+public class NoteItem implements Comparable {
 
     // TODO: should this be an URI?
     private final String id;
     private final String link;
     private final String comment;
     private final NoteItemKind kind;
-    private boolean done;
+    private Boolean done;
     private LocalDateTime reminder;
 
     public NoteItem(String link, String comment, NoteItemKind kind) {
@@ -50,11 +51,11 @@ public class NoteItem implements Comparable{
         return kind;
     }
 
-    public boolean isDone() {
+    public Boolean isDone() {
         return done;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(Boolean done) {
         this.done = done;
     }
 
@@ -68,8 +69,8 @@ public class NoteItem implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        if (o instanceof NoteItem) {
-            return id.compareTo(((NoteItem) o).getId());
+        if (o instanceof NoteItem noteItem) {
+            return id.compareTo(noteItem.getId());
         }
         return -1;
     }

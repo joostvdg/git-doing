@@ -1,6 +1,8 @@
+import com.github.joostvdg.gitdoing.core.export.XmlStreamExporter;
+
 module com.github.joostvdg.gitdoing.core {
 
-    requires java.xml.bind;
+    requires jakarta.xml.bind;
 
     requires com.github.joostvdg.gitdoing.api;
 
@@ -8,7 +10,7 @@ module com.github.joostvdg.gitdoing.core {
 
     provides com.github.joostvdg.gitdoing.api.exporters.Exporter with
             com.github.joostvdg.gitdoing.core.export.OutputTest,
-            com.github.joostvdg.gitdoing.core.export.XmlExporter;
+            XmlStreamExporter;
 
     // Required for Surefire?
     opens com.github.joostvdg.gitdoing.core.export;

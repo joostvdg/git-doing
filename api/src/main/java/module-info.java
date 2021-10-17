@@ -1,6 +1,6 @@
 module com.github.joostvdg.gitdoing.api {
 
-    requires java.xml.bind;
+    requires jakarta.xml.bind;
 
     exports com.github.joostvdg.gitdoing.api to com.github.joostvdg.gitdoing.core, com.github.joostvdg.gitdoing.gui;
     exports com.github.joostvdg.gitdoing.api.exporters; // to com.github.joostvdg.gitdoing.core, com.github.joostvdg.gitdoing.gui;

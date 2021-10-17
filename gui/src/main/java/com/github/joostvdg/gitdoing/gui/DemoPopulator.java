@@ -3,6 +3,7 @@ package com.github.joostvdg.gitdoing.gui;
 import com.github.joostvdg.gitdoing.api.Note;
 import com.github.joostvdg.gitdoing.api.NoteItem;
 import com.github.joostvdg.gitdoing.api.NoteItemKind;
+import com.github.joostvdg.gitdoing.api.Notes;
 import com.github.joostvdg.gitdoing.api.exporters.Exporter;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.ServiceLoader;
 
 public class DemoPopulator {
 
-    private final List<Note> notes;
+    private final Notes notes;
 
     public DemoPopulator() {
         Note note1 = new Note("Test", "My First Test");
@@ -34,7 +35,7 @@ public class DemoPopulator {
         note2.addItem(noteItem2);
         note2.addLabel("study");
 
-        notes = new ArrayList<>();
+        notes = new Notes();
         notes.add(note1);
         notes.add(note2);
 
@@ -48,7 +49,7 @@ public class DemoPopulator {
                 .forEach(exporter -> System.out.println( exporter.name() + ": " + exporter.export(note1)));
     }
 
-    public List<Note> getNotes(){
+    public Notes getEntries(){
         return notes;
     }
 }

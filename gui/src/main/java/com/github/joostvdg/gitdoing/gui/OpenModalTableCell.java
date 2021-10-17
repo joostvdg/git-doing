@@ -1,15 +1,14 @@
 package com.github.joostvdg.gitdoing.gui;
 
 import com.github.joostvdg.gitdoing.api.Note;
+import com.github.joostvdg.gitdoing.gui.controller.ViewNoteController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -44,10 +43,10 @@ public class OpenModalTableCell<S> extends TableCell<S, Button> {
 
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/windowtest.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/ViewNote.fxml"));
         String noteInfoLine = "";
         if (cellObject instanceof Note n) {
-            var controller = new WindowTestController(n);
+            var controller = new ViewNoteController(n);
             loader.setController(controller);
             noteInfoLine = "" + n.getName() + " (" + n.getIdentifier() + ")";
             System.out.println(noteInfoLine);

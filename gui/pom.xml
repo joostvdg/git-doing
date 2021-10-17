@@ -4,12 +4,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.joostvdg.gitdoing</groupId>
   <artifactId>git-doing-gui</artifactId>
-
   <name>git-doing-gui</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <parent>
     <groupId>com.github.joostvdg.gitdoing</groupId>
@@ -19,9 +15,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -39,22 +34,35 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>15.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>15.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-web</artifactId>
+    </dependency>
+
+
+    <!-- hack due to:
+      http://www.descher.at/descher-vu/2019/01/java-11-jaxb-and-osgi/
+      https://sjhannah.com/blog/2018/11/21/jaxb-hell-on-jdk-9/
+      https://github.com/eclipse-ee4j/jaxb-api/issues/78
+    -->
+    <dependency>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
+      <version>3.0.2</version>
     </dependency>
   </dependencies>
-
 
   <build>
     <plugins>
       <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
-        <version>0.0.5</version>
+        <version>0.0.8</version>
         <configuration>
           <mainClass>com.github.joostvdg.gitdoing.gui/com.github.joostvdg.gitdoing.gui.App</mainClass>
           <options>
@@ -63,6 +71,13 @@
             <option>--enable-preview</option>
           </options>
           <commandlineArgs>--enable-preview</commandlineArgs>
+<!--          <runtimePathOption>MODULEPATH</runtimePathOption>-->
+          <includePathExceptionsInClasspath>true</includePathExceptionsInClasspath>
+          <jlinkVerbose>true</jlinkVerbose>
+          <bindServices>true</bindServices>
+          <launcher>gitdoing</launcher>
+          <jlinkImageName>gitdoing</jlinkImageName>
+          <jlinkZipName>gitdoing</jlinkZipName>
         </configuration>
       </plugin>
     </plugins>
